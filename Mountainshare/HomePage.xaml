@@ -4,10 +4,10 @@
              x:Class="OutdoorShareMauiApp.Pages.HomePage"
              Title="Accueil">
     <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="16">
+        <VerticalStackLayout Padding="10" Spacing="15">
             <SearchBar Placeholder="Rechercher équipement, guides..." />
 
-            <HorizontalStackLayout Spacing="10">
+            <HorizontalStackLayout Spacing="15">
                 <Image Source="ski_icon.png" HeightRequest="40" WidthRequest="40" />
                 <Image Source="bike_icon.png" HeightRequest="40" WidthRequest="40" />
                 <Image Source="hiking_icon.png" HeightRequest="40" WidthRequest="40" />
@@ -15,7 +15,7 @@
             </HorizontalStackLayout>
 
             <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18" />
-            <Frame>
+            <Frame Padding="10">
                 <VerticalStackLayout>
                     <Image Source="ski_set.png" HeightRequest="100" />
                     <Label Text="Set Ski Rossignol - Chamonix22" />
@@ -30,27 +30,26 @@
                     <Label Text="30€/jour" TextColor="Green" />
                 </VerticalStackLayout>
             </Frame>
-
+            
+            
             <Label Text="Guides Locaux" FontAttributes="Bold" FontSize="18" />
-            <HorizontalStackLayout>
-                <Frame>
-                    <VerticalStackLayout>
-                        <Image Source="guide1.png" HeightRequest="60" WidthRequest="60" />
-                        <Label Text="Marc D.
-Guide de Haute Montagne" />
-                        <Button Text="Contacter" />
-                    </VerticalStackLayout>
-                </Frame>
-                <Frame>
-                    <VerticalStackLayout>
-                        <Image Source="guide2.png" HeightRequest="60" WidthRequest="60" />
-                        <Label Text="Sophie M.
-Monitrice de Ski" />
-                        <Button Text="Contacter" />
-                    </VerticalStackLayout>
-                </Frame>
-            </HorizontalStackLayout>
+            <Frame >
+                <VerticalStackLayout>
+                    <Image Source="guide1.png" WidthRequest="300"/>
+                    <Label Text="Marc D.Guide de Haute Montagne" HorizontalOptions="Center" Margin="10"/>
+                    <Button Text="Contacter" />
+                </VerticalStackLayout>
+            </Frame>
 
+            <Frame>
+                <VerticalStackLayout>
+                    <Image Source="guide2.png"  WidthRequest="300"/>
+                    <Label Text="Deni M.Moniteur de Ski" HorizontalOptions="Center" Margin="10"/>
+                    <Button Text="Contacter" />
+                </VerticalStackLayout>
+            </Frame>
+
+            
             <Label Text="Transport" FontAttributes="Bold" FontSize="18" />
             <Frame>
                 <VerticalStackLayout>
