@@ -18,7 +18,7 @@
             <Frame>
                 <VerticalStackLayout>
                     <Image Source="ski_set.png" HeightRequest="100" />
-                    <Label Text="Set Ski Rossignol - Chamonix" />
+                    <Label Text="Set Ski Rossignol - Chamonix2" />
                     <Label Text="25€/jour" TextColor="Green" />
                 </VerticalStackLayout>
             </Frame>
