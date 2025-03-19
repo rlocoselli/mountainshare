@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutdoorShareMauiApp.Pages.HomePage"
+             Title="Accueil">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="16">
+            <SearchBar Placeholder="Rechercher équipement, guides..." />
+
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="ski_icon.png" HeightRequest="40" WidthRequest="40" />
+                <Image Source="bike_icon.png" HeightRequest="40" WidthRequest="40" />
+                <Image Source="hiking_icon.png" HeightRequest="40" WidthRequest="40" />
+                <Image Source="climbing_icon.png" HeightRequest="40" WidthRequest="40" />
+            </HorizontalStackLayout>
+
+            <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18" />
+            <Frame>
+                <VerticalStackLayout>
+                    <Image Source="ski_set.png" HeightRequest="100" />
+                    <Label Text="Set Ski Rossignol - Chamonix" />
+                    <Label Text="25€/jour" TextColor="Green" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame>
+                <VerticalStackLayout>
+                    <Image Source="bike.png" HeightRequest="100" />
+                    <Label Text="VTT Trek - Annecy" />
+                    <Label Text="30€/jour" TextColor="Green" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Guides Locaux" FontAttributes="Bold" FontSize="18" />
+            <HorizontalStackLayout>
+                <Frame>
+                    <VerticalStackLayout>
+                        <Image Source="guide1.png" HeightRequest="60" WidthRequest="60" />
+                        <Label Text="Marc D.
+Guide de Haute Montagne" />
+                        <Button Text="Contacter" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame>
+                    <VerticalStackLayout>
+                        <Image Source="guide2.png" HeightRequest="60" WidthRequest="60" />
+                        <Label Text="Sophie M.
+Monitrice de Ski" />
+                        <Button Text="Contacter" />
+                    </VerticalStackLayout>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Label Text="Transport" FontAttributes="Bold" FontSize="18" />
+            <Frame>
+                <VerticalStackLayout>
+                    <Label Text="Navette Station - Aujourd’hui" />
+                    <Label Text="Chamonix → Grand Montets - 09:00" />
+                    <Label Text="Chamonix → Brévent - 09:30" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
