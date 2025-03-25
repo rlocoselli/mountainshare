@@ -13,6 +13,11 @@ namespace OutdoorShareMauiApp
             Routing.RegisterRoute(nameof(PublishPage), typeof(Pages.PublishPage));
             Routing.RegisterRoute(nameof(MessagesPage), typeof(Pages.MessagesPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(Pages.ProfilePage));
+            Shell.SetTabBarTitleColor(this, Colors.Black);
+            Shell.SetTabBarUnselectedColor(this, Colors.Black);
+
         }
+
+
     }
 }

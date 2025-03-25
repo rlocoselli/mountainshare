@@ -6,18 +6,20 @@
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="15">
             
-            <Frame CornerRadius="30" BorderColor="black" Padding="2" BackgroundColor="White" Margin="15">
+            <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="15">
                 <Grid ColumnDefinitions="*,Auto">
 
                     <Entry Placeholder="Search" 
-                       FontSize="8"            
+                           PlaceholderColor="Black"
+                           TextColor="Black"
+                       FontSize="15"            
                        BackgroundColor="Transparent"
-                       Grid.Column="0"/>        
+                       Grid.Column="0" />        
 
 
-                    <Image Source="search_icon.png"
-                       HeightRequest="10"
-                       WidthRequest="10"
+                    <Image Source="search.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
                        Grid.Column="1"/>
@@ -32,7 +34,7 @@
                 <ImageButton></ImageButton>
             </HorizontalStackLayout>
 
-            <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18" />
+            <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
 
             <VerticalStackLayout Padding="10">
 
@@ -41,16 +43,17 @@
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
                             <Image Source="ski_set.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Set Ski Rossignol - Chamonix22" 
-                       FontSize="14" 
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       Margin="5"/>
+                            <Label Text="Set Ski Rossignol - Chamonix22"
+                                TextColor="Black"   
+                                FontSize="14" 
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                Margin="5"/>
                             <Label Text="25€/jour" 
-                       TextColor="Green" 
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"/>
+                               TextColor="Green" 
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
 
@@ -59,15 +62,16 @@
                         <VerticalStackLayout>
                             <Image Source="bike.png" WidthRequest="140" HeightRequest="140"/>
                             <Label Text="VTT Trek X-Caliber 9" 
-                       FontSize="14" 
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       Margin="5"/>
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Margin="5"
+                               TextColor="Black"/> 
                             <Label Text="30€/jour" 
-                       TextColor="Green" 
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"/>
+                               TextColor="Green" 
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
@@ -79,31 +83,33 @@
                         <VerticalStackLayout>
                             <Image Source="bike.png" WidthRequest="140" HeightRequest="140"/>
                             <Label Text="VTT Trek X-Caliber 9" 
-                       FontSize="14" 
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       Margin="5"/>
+                               TextColor="Black"
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Margin="5"/>
                             <Label Text="30€/jour" 
-                       TextColor="Green" 
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"/>
+                               TextColor="Green" 
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
 
-                    <Frame Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
+                    <Frame  Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
-                            <Image Source="ski_set.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Set Ski Rossignol - Chamonix22" 
-                       FontSize="14" 
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       Margin="5"/>
+                            <Image Source="ski_set.png" WidthRequest="140" HeightRequest="140" />
+                            <Label Text="Set Ski Rossignol - Chamonix22"
+                               TextColor="Black"
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Margin="5"/>
                             <Label Text="25€/jour" 
-                       TextColor="Green" 
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"/>
+                               TextColor="Green" 
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
@@ -112,8 +118,8 @@
 
 
             <!--/////////////////////////-->
-            
-            <Label Text="Guide et Moniteur Locaux" FontAttributes="Bold" FontSize="18" />
+
+            <Label Text="Guide et Moniteur Locaux" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
 
             <VerticalStackLayout Padding="10" >
 
@@ -122,7 +128,8 @@
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
                             <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Marc D. - Guide de Haute Montagne" 
+                            <Label Text="Marc D. - Guide de Haute Montagne"
+                               TextColor="Black"    
                                FontSize="14" 
                                FontAttributes="Bold"
                                HorizontalTextAlignment="Center"
@@ -138,7 +145,8 @@
                     <Frame Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
                             <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Deni M. - Moniteur de Ski" 
+                            <Label Text="Deni M. - Moniteur de Ski"
+                                TextColor="Black"
                                 FontSize="14" 
                                 FontAttributes="Bold"
                                 HorizontalTextAlignment="Center"
@@ -156,7 +164,8 @@
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
                             <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Marc D. - Guide de Haute Montagne" 
+                            <Label Text="Marc D. - Guide de Haute Montagne"
+                               TextColor="Black"
                                FontSize="14" 
                                FontAttributes="Bold"
                                HorizontalTextAlignment="Center"
@@ -172,7 +181,8 @@
                     <Frame Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
                             <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Deni M. - Moniteur de Ski" 
+                            <Label Text="Deni M. - Moniteur de Ski"
+                                TextColor="Black"
                                 FontSize="14" 
                                 FontAttributes="Bold"
                                 HorizontalTextAlignment="Center"

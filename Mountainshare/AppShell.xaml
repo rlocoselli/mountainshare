@@ -6,6 +6,8 @@
     xmlns:pages="clr-namespace:OutdoorShareMauiApp.Pages">
 
 
+
+
     <TabBar>
 
         <ShellContent Title="Accueil" 
