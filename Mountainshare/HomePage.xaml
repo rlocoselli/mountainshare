@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.Pages.HomePage"
-             Title="Accueil">
+             Title="MountainShare">
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="15">
             
-            <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="15">
+            <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">
                 <Grid ColumnDefinitions="*,Auto">
 
                     <Entry Placeholder="Search" 
@@ -26,7 +26,7 @@
                 </Grid>
             </Frame>
 
-            <HorizontalStackLayout Spacing="15">
+            <HorizontalStackLayout Spacing="15" Margin="15,0,0,0">
                 <ImageButton Source="ski_icon.png" HeightRequest="40" WidthRequest="40" />
                 <ImageButton Source="bike_icon.png" HeightRequest="40" WidthRequest="40" />
                 <ImageButton Source="hiking_icon.png" HeightRequest="40" WidthRequest="40" />
@@ -38,7 +38,7 @@
 
             <VerticalStackLayout Padding="10">
 
-                <Grid ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
+                <Grid ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10"  Margin="0,0,0,15">
 
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
@@ -122,8 +122,10 @@
             <Label Text="Guide et Moniteur Locaux" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
 
             <VerticalStackLayout Padding="10" >
-
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" >
+                
+                
+                
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,0,0,15">
 
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
@@ -141,10 +143,11 @@
                         </VerticalStackLayout>
                     </Frame>
 
+                    
 
                     <Frame Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
-                            <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
+                            <Image Source="guide2.png" WidthRequest="140" HeightRequest="140"/>
                             <Label Text="Deni M. - Moniteur de Ski"
                                 TextColor="Black"
                                 FontSize="14" 
@@ -163,7 +166,7 @@
 
                     <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
                         <VerticalStackLayout>
-                            <Image Source="guide1.png" WidthRequest="140" HeightRequest="140"/>
+                            <Image Source="guide3.png" WidthRequest="140" HeightRequest="140"/>
                             <Label Text="Marc D. - Guide de Haute Montagne"
                                TextColor="Black"
                                FontSize="14" 
