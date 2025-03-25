@@ -9,7 +9,7 @@ namespace OutdoorShareMauiApp
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(HomePage), typeof(Pages.HomePage));
-            Routing.RegisterRoute(nameof(SearchPage), typeof(Pages.SearchPage));
+            Routing.RegisterRoute(nameof(FavorisPage), typeof(Pages.FavorisPage));
             Routing.RegisterRoute(nameof(PublishPage), typeof(Pages.PublishPage));
             Routing.RegisterRoute(nameof(MessagesPage), typeof(Pages.MessagesPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(Pages.ProfilePage));

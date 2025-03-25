@@ -67,8 +67,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="SearchPage.xaml.cs">
-	    <DependentUpon>SearchPage.xaml</DependentUpon>
+	  <Compile Update="FavorisPage.xaml.cs">
+	    <DependentUpon>FavorisPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

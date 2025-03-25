@@ -16,7 +16,7 @@
         
         <ShellContent Title="Favoris" 
                       Icon="favori.png" 
-                      ContentTemplate="{DataTemplate pages:SearchPage}" />
+                      ContentTemplate="{DataTemplate pages:FavorisPage}" />
         
         <ShellContent Title="Publier" 
                       Icon="add.png" 
