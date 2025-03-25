@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="OutdoorShareMauiApp.Pages.FavorisPage"
              Title="Favoris">
-    <StackLayout Padding="20">
-        <Label Text="Favoris Page" FontSize="24" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+
+    <ScrollView>
+        <StackLayout Padding="15" Spacing="10">
+
+            <Label Text="Mes Favoris en Montagne"
+                   FontAttributes="Bold"
+                   FontSize="28"
+                   HorizontalOptions="Center"
+                   Margin="0,10" />
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Stations de Ski" FontSize="20" FontAttributes="Bold" />
+                </toolkit:Expander.Header>
+                <toolkit:Expander.Content>
+                    <StackLayout Padding="10" Spacing="5">
+                        <Label Text="Chamrousse" />
+                        <Label Text="Les Deux Alpes" />
+                        <Label Text="Alpe d'Huez" />
+                    </StackLayout>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Guides Favoris" FontSize="20" FontAttributes="Bold" />
+                </toolkit:Expander.Header>
+                <toolkit:Expander.Content>
+                    <StackLayout Padding="10" Spacing="5">
+                        <Label Text="Jean Dupont - Guide Ski Alpin" />
+                        <Label Text="Marie Durand - Randonnée" />
+                        <Label Text="Luc Martin - Escalade" />
+                    </StackLayout>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Matériel Sauvegardé" FontSize="20" FontAttributes="Bold" />
+                </toolkit:Expander.Header>
+                <toolkit:Expander.Content>
+                    <StackLayout Padding="10" Spacing="5">
+                        <Label Text="Ski Atomic Backland" />
+                        <Label Text="Chaussures Scarpa F1" />
+                        <Label Text="Sac à dos Arva 32L" />
+                    </StackLayout>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>
