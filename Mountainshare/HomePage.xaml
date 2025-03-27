@@ -26,6 +26,8 @@
                 </Grid>
             </Frame>
 
+            
+            
             <HorizontalStackLayout Spacing="15" Margin="15,0,0,0">
                 <ImageButton Source="ski_icon.png" HeightRequest="40" WidthRequest="40" />
                 <ImageButton Source="bike_icon.png" HeightRequest="40" WidthRequest="40" />
@@ -33,6 +35,52 @@
                 <ImageButton Source="climbing_icon.png" HeightRequest="40" WidthRequest="40" />
                 <ImageButton></ImageButton>
             </HorizontalStackLayout>
+
+            <Label Text="Équipement recement vus" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
+            
+            <ScrollView Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
+
+
+                    <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <StackLayout>
+                            <Image Source="ski_set.png" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="HEAD" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="ski" FontSize="12" TextColor="Green"/>
+                            <Label Text="Grenoble" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <StackLayout>
+                            <Image Source="bike.jpeg" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="SANTA CRUZ" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="Velo" FontSize="12" TextColor="Green"/>
+                            <Label Text="Bordeaux 33000" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <StackLayout>
+                            <Image Source="guide3.jpeg" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="André" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="Guide/Moniteur locaux" FontSize="12" TextColor="Green"/>
+                            <Label Text="Guide de haute montagne" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <StackLayout>
+                            <Image Source="guide2.jpeg" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="Joseph" FontAttributes="Bold" FontSize="14"/>
+                            <Label Text="Guide/Moniteur locaux" FontSize="12" TextColor="Green"/>
+                            <Label Text="MOniteur de skis" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </ScrollView>
+
 
             <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
 
