@@ -5,29 +5,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:OutdoorShareMauiApp.Pages">
 
-
-
-
     <TabBar>
-
         <ShellContent Title="Accueil" 
                       Icon="home.png"
                       ContentTemplate="{DataTemplate pages:HomePage}" />
-        
+
         <ShellContent Title="Favoris" 
                       Icon="favori.png" 
                       ContentTemplate="{DataTemplate pages:FavorisPage}" />
-        
+
         <ShellContent Title="Publier" 
                       Icon="add.png" 
                       ContentTemplate="{DataTemplate pages:PublishPage}" />
-        
+
         <ShellContent Title="Messages" 
                       Icon="messages.png" 
                       ContentTemplate="{DataTemplate pages:MessagesPage}" />
-        
+
         <ShellContent Title="Profil" 
                       Icon="profile.png" 
                       ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
+
+    
 </Shell>

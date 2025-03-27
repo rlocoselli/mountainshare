@@ -8,5 +8,10 @@ namespace OutdoorShareMauiApp.Pages
         {
             InitializeComponent();
         }
+
+        private async void OnMessageTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PrivateMessagePage());
+        }
     }
 }

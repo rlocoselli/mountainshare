@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutdoorShareMauiApp.PrivateMessagePage"
+             Title="PrivateMessagePage">
+    <ContentPage.Resources>
+        <Style x:Key="ReceivedBubble" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="#f0f0f5"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+
+        <Style x:Key="SentBubble" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="#4a6cf7"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+    </ContentPage.Resources>
+
+
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+
+        <!-- Header section -->
+        <Grid Grid.Row="0" Padding="10">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <Border
+                    Stroke="Gray"
+                    StrokeThickness="1"
+                    BackgroundColor="Transparent"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    Padding="0"
+                    Margin="0,0,5,0"
+                    StrokeShape="RoundRectangle 50">    
+                    <Image Source="guide1.jpeg" WidthRequest="70" HeightRequest="70" />
+                </Border>
+
+                <StackLayout>
+                    <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16"/>
+                    <Label Text="Online" TextColor="#4a6cf7" FontSize="12"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+
+        <!-- Messages list -->
+        <ScrollView  Grid.Row="1">
+            <StackLayout x:Name="MessagesLayout" Padding="10">
+                <!-- Received -->
+                <Frame Style="{StaticResource ReceivedBubble}">
+                    <StackLayout>
+                        <Label Text="Hey! How are you doing today?" FontSize="16"/>
+                        <Label Text="10:45 AM" FontSize="12" TextColor="Gray" HorizontalOptions="Start"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Sent -->
+                <Frame Style="{StaticResource SentBubble}">
+                    <StackLayout>
+                        <Label Text="I'm doing great, thanks for asking!" FontSize="16" TextColor="White"/>
+                        <Label Text="10:46 AM ✓✓" FontSize="12" TextColor="White" HorizontalOptions="End"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Received -->
+                <Frame Style="{StaticResource ReceivedBubble}">
+                    <StackLayout>
+                        <Label Text="What about you?" FontSize="16"/>
+                        <Label Text="10:47 AM" FontSize="12" TextColor="Gray" HorizontalOptions="Start"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Typing indicator -->
+                <Label Text="Alex is typing..." FontSize="12" TextColor="Gray" Margin="10,5,0,0"/>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid  Grid.Row="1" Padding="10"
+          BackgroundColor="White"
+          ColumnDefinitions="Auto,*,Auto,Auto"
+          VerticalOptions="End">
+
+
+            <!-- Text Entry -->
+            <Frame Grid.Column="1"
+               CornerRadius="20"
+               Padding="5"
+               BackgroundColor="White"
+               BorderColor="#cfd4e4"
+               HasShadow="False"
+               VerticalOptions="Center"
+               Margin="10,0">
+                <Entry x:Name="MessageEntry"
+                   Placeholder="Type a message..."
+                   FontSize="14"
+                   BackgroundColor="Transparent"
+                   TextColor="Black"/>
+            </Frame>
+
+            <!-- Attachment Icon -->
+            <Frame Grid.Column="2"
+               BackgroundColor="#cfd4e4"
+               Padding="8"
+               CornerRadius="20"
+               HasShadow="False"
+               HeightRequest="40"
+               WidthRequest="40"
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+                <Image Source="attachment.png"
+                   HeightRequest="20"
+                   WidthRequest="20"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Send Button -->
+            <Frame Grid.Column="3"
+               BackgroundColor="#6366F1"
+                   Margin="4,0,0,0"
+               Padding="8"
+               CornerRadius="20"
+               HasShadow="False"
+               HeightRequest="40"
+               WidthRequest="40"
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+                <Image Source="send.png"
+                   HeightRequest="20"
+                   WidthRequest="20"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            </Frame>
+        </Grid>
+
+    </Grid>
+</ContentPage>

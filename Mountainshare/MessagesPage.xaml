@@ -30,6 +30,10 @@
 
 
             <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessageTapped" />
+                </Frame.GestureRecognizers>
+
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Frame Padding="0"
                        CornerRadius="25"
@@ -52,6 +56,10 @@
 
 
             <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessageTapped" />
+                </Frame.GestureRecognizers>
+
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Frame Padding="0"
                        CornerRadius="25"
@@ -64,15 +72,21 @@
                            HeightRequest="50"
                            Aspect="AspectFill" />
                     </Frame>
+
                     <StackLayout>
-                        <Label Text="Emily Turner" FontAttributes="Bold" FontSize="16" />
-                        <Label Text="Can we reschedule our meeting?" FontSize="13" TextColor="Gray" />
+                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
+                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
 
+
             <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessageTapped" />
+                </Frame.GestureRecognizers>
+
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Frame Padding="0"
                        CornerRadius="25"
@@ -85,9 +99,10 @@
                            HeightRequest="50"
                            Aspect="AspectFill" />
                     </Frame>
+
                     <StackLayout>
-                        <Label Text="Liam Brown" FontAttributes="Bold" FontSize="16" />
-                        <Label Text="Check out this cool pic!" FontSize="13" TextColor="Gray" />
+                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
+                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
                     </StackLayout>
                 </StackLayout>
             </Frame>
