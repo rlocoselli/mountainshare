@@ -9,4 +9,6 @@ namespace OutdoorShareMauiApp.Pages
             InitializeComponent();
         }
     }
+
+ 
 }

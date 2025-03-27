@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.Pages.HomePage"
              Title="MountainShare">
+
     <ScrollView>
+        
+        
+
         <VerticalStackLayout Padding="10" Spacing="15">
             
             <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">

@@ -4,18 +4,125 @@
              x:Class="OutdoorShareMauiApp.Pages.PublishPage"
              Title="Stations de Ski">
 
-    <StackLayout Padding="15" Spacing="10">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
 
-        <Label Text="Découvrez les Stations" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
-        <IndicatorView x:Name="indicator" IndicatorColor="Gray" SelectedIndicatorColor="Black"/>
 
-        <CarouselView ItemsSource="{Binding Images}" IndicatorView="indicator" Loop="True" HeightRequest="300">
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding}" Aspect="AspectFill" />
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
+            <Label Text="Ajoutd'un Produit" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" />
+
+
+            <Border Stroke="Black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 8"
+                Background="#F6F6F6"
+                Padding="0"
+                Margin="0,0,0,10">
+                <Entry Placeholder="Nom Du Produit"
+                   BackgroundColor="Transparent"
+                   HeightRequest="50"
+                   FontSize="14"
+                   TextColor="Black"
+                   Margin="8,0"/>
+            </Border>
+
+
+
+            <Border Stroke="Black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 8"
+                Background="#F6F6F6"
+                Padding="0"
+                Margin="0,0,0,10">
+                <Picker
+                    Title="Choisissez une catégorie"
+                    BackgroundColor="Transparent"
+                    HeightRequest="50"
+                    FontSize="14"
+                    TextColor="Black"
+                    Margin="8,0">
+                    <Picker.Items>
+                        <x:String>Randonnée</x:String>
+                        <x:String>Matériel d'escalade</x:String>
+                        <x:String>Moniteur d'escalade</x:String>
+                        <x:String>Skis</x:String>
+                        <x:String>Moniteur de skis / Snowboard</x:String>
+                        <x:String>Snowboard</x:String>
+                        <x:String>Camping</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Border>
+
+
+
+
+            <Border Stroke="Black"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 8"
+                Background="#F6F6F6"
+                Padding="0"
+                Margin="0,0,0,10">
+                <Entry Placeholder="Prix"
+                   Keyboard="Numeric"
+                   BackgroundColor="Transparent"
+                   HeightRequest="50"
+                   FontSize="14"
+                   TextColor="Black"
+                   Margin="8,0" />
+            </Border>
+
+
+
+            <Border Stroke="Gray" StrokeThickness="1" StrokeShape="RoundRectangle 10" Background="#F6F6F6" Padding="0">
+                <Editor Placeholder="Description"
+                    AutoSize="TextChanges"
+                    HeightRequest="100"
+                    BackgroundColor="Transparent"
+                    TextColor="Black"
+                    FontSize="14" />
+            </Border>
+
+
+
+            <Grid ColumnSpacing="10" RowSpacing="10" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
+                </Frame>
+
+                
+            </Grid>
+
+
+            <Button Text="Add Product"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    FontAttributes="Bold" />
+
         
-    </StackLayout>
+        </StackLayout>
+    
+    </ScrollView>
+
 </ContentPage>

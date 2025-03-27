@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OutdoorShareMauiApp.Pages.ProfilePage"
-             Title="Profile">
-    <StackLayout Padding="20">
-        <Label Text="Profile Page" FontSize="24" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+<ContentPage 
+    x:Class="OutdoorShareMauiApp.Pages.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+
+            <!-- Carte Profil -->
+            <Frame CornerRadius="15" Padding="15" HasShadow="True">
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Frame Padding="0"
+                       CornerRadius="30"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       HasShadow="False"
+                       IsClippedToBounds="True"
+                       VerticalOptions="Center">
+                        <Image Source="guide1.jpeg"
+                           WidthRequest="60"
+                           HeightRequest="60"
+                           Aspect="AspectFill"
+                           VerticalOptions="Center" />  
+                    </Frame>
+
+
+                    <StackLayout VerticalOptions="Center">
+                        <Label Text="Alex Johnson" 
+                               FontAttributes="Bold" 
+                               FontSize="18" />
+                        <Label Text="alex.johnson@example.com" 
+                               FontSize="13" 
+                               TextColor="Gray" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Boutons -->
+            <Button Text="Mes annonces"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="Demande de reservation"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="Update Personal Information"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="Change Password"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <!-- Bouton Log Out -->
+            <Button Text="Log Out"
+                    BackgroundColor="#CBD5E1"
+                    TextColor="Black"
+                    CornerRadius="10" />
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -3,7 +3,97 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.Pages.MessagesPage"
              Title="Messages">
-    <StackLayout Padding="20">
-        <Label Text="Messages Page" FontSize="24" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <Entry Placeholder="Search messages or contacts" 
+                       PlaceholderColor="Black"
+                       TextColor="Black"
+                       FontSize="15"            
+                       BackgroundColor="Transparent"
+                       Grid.Column="0" />
+
+
+                    <Image Source="search.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Grid.Column="1"/>
+                </Grid>
+            </Frame>
+
+
+            <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HasShadow="False"
+                       IsClippedToBounds="True">
+                        <Image Source="guide1.jpeg"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Aspect="AspectFill" />
+                    </Frame>
+
+                    <StackLayout>
+                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
+                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+
+            <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HasShadow="False"
+                       IsClippedToBounds="True">
+                        <Image Source="guide1.jpeg"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Aspect="AspectFill" />
+                    </Frame>
+                    <StackLayout>
+                        <Label Text="Emily Turner" FontAttributes="Bold" FontSize="16" />
+                        <Label Text="Can we reschedule our meeting?" FontSize="13" TextColor="Gray" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+
+            <Frame CornerRadius="15" HasShadow="True" Padding="10">
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Frame Padding="0"
+                       CornerRadius="25"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HasShadow="False"
+                       IsClippedToBounds="True">
+                        <Image Source="guide1.jpeg"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Aspect="AspectFill" />
+                    </Frame>
+                    <StackLayout>
+                        <Label Text="Liam Brown" FontAttributes="Bold" FontSize="16" />
+                        <Label Text="Check out this cool pic!" FontSize="13" TextColor="Gray" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+
+
 </ContentPage>
