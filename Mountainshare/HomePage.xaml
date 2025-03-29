@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.Pages.HomePage"
+             xmlns:converters="clr-namespace:OutdoorShareMauiApp.Converters"
              Title="MountainShare">
 
     <ScrollView>
@@ -86,87 +87,27 @@
             </ScrollView>
 
 
-            <Label Text="Équipement Disponible" FontAttributes="Bold" FontSize="18"  TextColor="Black"/>
+            <Label Text="Équipements disponibles" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
 
-            <VerticalStackLayout Padding="10">
-
-                <Grid ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10"  Margin="0,0,0,15">
-
-                    <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
-                        <VerticalStackLayout>
-                            <Image Source="ski_set.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="Set Ski Rossignol - Chamonix22"
-                                TextColor="Black"   
-                                FontSize="14" 
-                                FontAttributes="Bold"
-                                HorizontalTextAlignment="Center"
-                                Margin="5"/>
-                            <Label Text="25€/jour" 
-                               TextColor="Green" 
-                               FontSize="16"
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </Frame>
-
-
-                    <Frame Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
-                        <VerticalStackLayout>
-                            <Image Source="bike.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="VTT Trek X-Caliber 9" 
-                               FontSize="14" 
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"
-                               Margin="5"
-                               TextColor="Black"/> 
-                            <Label Text="30€/jour" 
-                               TextColor="Green" 
-                               FontSize="16"
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </Grid>
-
-
-                <Grid ColumnDefinitions="*,*" RowSpacing="10" ColumnSpacing="10">
-
-                    <Frame Grid.Column="0" CornerRadius="10" Padding="10" BorderColor="LightGray">
-                        <VerticalStackLayout>
-                            <Image Source="bike.png" WidthRequest="140" HeightRequest="140"/>
-                            <Label Text="VTT Trek X-Caliber 9" 
-                               TextColor="Black"
-                               FontSize="14" 
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"
-                               Margin="5"/>
-                            <Label Text="30€/jour" 
-                               TextColor="Green" 
-                               FontSize="16"
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </Frame>
-
-                    <Frame  Grid.Column="1" CornerRadius="10" Padding="10" BorderColor="LightGray">
-                        <VerticalStackLayout>
-                            <Image Source="ski_set.png" WidthRequest="140" HeightRequest="140" />
-                            <Label Text="Set Ski Rossignol - Chamonix22"
-                               TextColor="Black"
-                               FontSize="14" 
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"
-                               Margin="5"/>
-                            <Label Text="25€/jour" 
-                               TextColor="Green" 
-                               FontSize="16"
-                               FontAttributes="Bold"
-                               HorizontalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </Grid>
-
-            </VerticalStackLayout>
+            <CollectionView x:Name="materialsListView" ItemsSource="{Binding SkiMaterials}" Margin="0,10,0,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="14" TextColor="Black" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding MaterialType}" FontSize="12" TextColor="Green" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding City}" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Price}" FontSize="12" TextColor="Black" HorizontalTextAlignment="Center" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>   
 
 
             <!--/////////////////////////-->
