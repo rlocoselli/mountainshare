@@ -17,22 +17,6 @@ namespace OutdoorShareMauiApp.Services
         public string MaterialType { get; set; }
         public DateTime PostedAt { get; set; }
         public string Image { get; set; }  // Base64 encoded image string
-        public ImageSource ImageSource
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Image)) return null;
-                try
-                {
-                    byte[] imageBytes = Convert.FromBase64String(Image);
-                    return ImageSource.FromStream(() => new MemoryStream(imageBytes));
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
     }
 
     public class ApiService
@@ -52,13 +36,6 @@ namespace OutdoorShareMauiApp.Services
                 Console.WriteLine($"Error fetching data: {ex.Message}");
                 return null;
             }
-        }
-
-        public ImageSource GetImageFromBase64(string base64String)
-        {
-            if (string.IsNullOrEmpty(base64String)) return null;
-            byte[] imageBytes = Convert.FromBase64String(base64String);
-            return ImageSource.FromStream(() => new MemoryStream(imageBytes));
         }
     }
 }

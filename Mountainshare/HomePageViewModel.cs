@@ -14,6 +14,19 @@ namespace OutdoorShareMauiApp
         {
             var apiService = new ApiService();
             SkiMaterials = await apiService.GetSkiMaterialsAsync();
+
+            foreach (var skiMaterial in SkiMaterials)
+            {
+                if (string.IsNullOrEmpty(skiMaterial.Image)) continue;
+                try
+                {
+                    byte[] imageBytes = Convert.FromBase64String(skiMaterial.Image);
+                }
+                catch
+                {
+                    continue;
+                }
+            }
         }
     }
 }
