@@ -2,25 +2,30 @@ using Microsoft.Maui.Controls;
 using OutdoorShareMauiApp.Services;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace OutdoorShareMauiApp.Pages
 {
     public partial class HomePage : ContentPage
     {
-        public List<SkiMaterial> Materials { get; set; }
+        public ObservableCollection<SkiMaterial> Materials { get; set; }
 
         public HomePage()
         {
             InitializeComponent();
             var viewModel = new HomePageViewModel();
             BindingContext = viewModel;
-            Task.Run(async () => await LoadMaterialsAsync(viewModel));
+            LoadMaterialsAsync(viewModel);
         }
 
-        private async Task LoadMaterialsAsync(HomePageViewModel viewModel)
+        private async void LoadMaterialsAsync(HomePageViewModel viewModel)
         {
             await viewModel.LoadSkiMaterialsAsync();
-            this.Materials = viewModel.SkiMaterials;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Materials = viewModel.SkiMaterials;
+                materialsListView.ItemsSource = Materials;
+            });
         }
 
         public class Base64ToImageSourceConverter : IValueConverter

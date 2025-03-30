@@ -16,7 +16,6 @@ namespace OutdoorShareMauiApp.Services
         public decimal Price { get; set; }
         public string MaterialType { get; set; }
         public DateTime PostedAt { get; set; }
-        public string Image { get; set; }  // Base64 encoded image string
     }
 
     public class ApiService
