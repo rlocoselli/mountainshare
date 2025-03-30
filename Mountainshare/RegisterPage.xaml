@@ -88,11 +88,15 @@
                 </Grid>
             </Frame>
 
-            <Grid ColumnDefinitions="*,auto" Padding="2,0">
+            <Grid ColumnDefinitions="*" Padding="2,0">
                 <Label Text="Déjà un compte ?"
                        TextColor="#6366F1"
                        FontSize="13"
-                       HorizontalOptions="Start" />
+                       HorizontalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegLoginTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
 
             </Grid>
 

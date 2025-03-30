@@ -82,6 +82,9 @@ public partial class RegisterPage : ContentPage
     }
 
 
-
+    private async void OnRegLoginTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage());
+    }
 
 }
