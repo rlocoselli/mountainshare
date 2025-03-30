@@ -10,7 +10,9 @@
         
 
         <VerticalStackLayout Padding="10" Spacing="15">
-            
+
+            <Button Text="Se connecter" Clicked="Test"/>
+
             <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">
                 <Grid ColumnDefinitions="*,Auto">
 

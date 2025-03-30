@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     x:Class="OutdoorShareMauiApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -8,24 +7,27 @@
     <TabBar>
         <ShellContent Title="Accueil" 
                       Icon="home.png"
+                      Route="HomePage"
                       ContentTemplate="{DataTemplate pages:HomePage}" />
 
         <ShellContent Title="Favoris" 
                       Icon="favori.png" 
+                      Route="FavorisPage"
                       ContentTemplate="{DataTemplate pages:FavorisPage}" />
 
         <ShellContent Title="Publier" 
                       Icon="add.png" 
+                      Route="PublishPage"
                       ContentTemplate="{DataTemplate pages:PublishPage}" />
 
         <ShellContent Title="Messages" 
                       Icon="messages.png" 
+                      Route="MessagesPage"
                       ContentTemplate="{DataTemplate pages:MessagesPage}" />
 
         <ShellContent Title="Profil" 
                       Icon="profile.png" 
+                      Route="ProfilePage"
                       ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
-
-    
 </Shell>

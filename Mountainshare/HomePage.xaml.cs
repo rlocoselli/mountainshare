@@ -10,6 +10,8 @@ namespace OutdoorShareMauiApp.Pages
     {
         public ObservableCollection<SkiMaterial> Materials { get; set; }
 
+        
+
         public HomePage()
         {
             InitializeComponent();
@@ -26,6 +28,11 @@ namespace OutdoorShareMauiApp.Pages
                 Materials = viewModel.SkiMaterials;
                 materialsListView.ItemsSource = Materials;
             });
+        }
+
+        private async void Test(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
 
         public class Base64ToImageSourceConverter : IValueConverter

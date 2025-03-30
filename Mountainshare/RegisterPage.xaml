@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutdoorShareMauiApp.RegisterPage"
+             Title="RegisterPage">
+    <Grid>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                     Padding="15"
+                     Spacing="15"
+                     WidthRequest="300">
+
+            <Frame Padding="0"
+                   HasShadow="False"
+                   BorderColor="Black"
+                   CornerRadius="5"
+                   HeightRequest="45">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Entry x:Name="FirstNameEntry"
+                           Placeholder="Prénom"
+                           Margin="10,0" />
+                </Grid>
+            </Frame>
+
+            <Frame Padding="0"
+                   HasShadow="False"
+                   BorderColor="Black"
+                   CornerRadius="5"
+                   HeightRequest="45">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Entry x:Name="LastNameEntry"
+                           Placeholder="Nom"
+                           Margin="10,0" />
+                </Grid>
+            </Frame>
+
+            <Frame Padding="0"
+                   HasShadow="False"
+                   BorderColor="Black"
+                   CornerRadius="5"
+                   HeightRequest="45">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Entry x:Name="EmailEntry"
+                           Placeholder="Email"
+                           Margin="10,0" />
+                </Grid>
+            </Frame>
+
+            <Frame Padding="0"
+                   HasShadow="False"
+                   BorderColor="Black"
+                   CornerRadius="5"
+                   HeightRequest="45">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Mot de passe"
+                           IsPassword="True"
+                           Margin="10,0"/>
+                    <ImageButton Source="eye_icon.png"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 VerticalOptions="Center"
+                                 Clicked="OnTogglePasswordVisibility"
+                                 HorizontalOptions="End"
+                                 Margin="0,0,15,0"/>
+                </Grid>
+            </Frame>
+
+            <Frame Padding="0"
+                   HasShadow="False"
+                   BorderColor="Black"
+                   CornerRadius="5"
+                   HeightRequest="45">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Entry x:Name="ConfirmPasswordEntry"
+                           Placeholder="Confirmer le mot de passe"
+                           IsPassword="True"
+                           Margin="10,0"/>
+                    <ImageButton Source="eye_icon.png"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 VerticalOptions="Center"
+                                 Clicked="OnToggleConfirmPasswordVisibility"
+                                 HorizontalOptions="End"
+                                 Margin="0,0,15,0"/>
+                </Grid>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,auto" Padding="2,0">
+                <Label Text="Déjà un compte ?"
+                       TextColor="#6366F1"
+                       FontSize="13"
+                       HorizontalOptions="Start" />
+
+            </Grid>
+
+            <Button Text="S'inscrire"
+                    BackgroundColor="#6366F1"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    HeightRequest="45"
+                    Clicked="OnRegisterClicked"/>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
