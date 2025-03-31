@@ -18,5 +18,16 @@ namespace OutdoorShareMauiApp.Pages
 
             BindingContext = Images;
         }
+
+        private async void OnProfileTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditProfilPage());
+        }
+
+        private async void OnChangePassword(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChangePasswordPage());
+        }
+
     }
 }

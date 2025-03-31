@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutdoorShareMauiApp.EditProfilPage"
+             Title="EditProfilPage">
+
+    <ScrollView>
+        <StackLayout Padding="0" Spacing="20">
+
+            <!-- Avatar + Texte -->
+            <Frame Padding="10" HasShadow="True" Margin="0">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                    <Grid>
+                        <Frame WidthRequest="100"
+                               HeightRequest="100"
+                               CornerRadius="50"
+                               IsClippedToBounds="True"
+                               BackgroundColor="White"
+                               Padding="0">
+                            <Image x:Name="ProfileImage"
+                                   Source="guide1.jpeg"
+                                   Aspect="AspectFill"
+                                   WidthRequest="100"
+                                   HeightRequest="100" />
+                        </Frame>
+
+                        <Frame
+                            WidthRequest="34"
+                            HeightRequest="34"
+                            CornerRadius="32"
+                            BackgroundColor="#6366F1"
+                            BorderColor="#6366F1"
+                            Padding="4"
+                            HorizontalOptions="End"
+                            VerticalOptions="End"
+                            Margin="0,0,5,5">
+                            <ImageButton                               
+                                Source="edit_icon1.png"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                Aspect="AspectFill"
+                                Clicked="OnEditPhotoClicked" />
+                        </Frame>
+
+                    </Grid>
+
+                    <Label Text="Edit Profile"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Champs de saisie -->
+            <StackLayout Padding="15" Spacing="15" WidthRequest="300">
+
+                <Frame Padding="0"
+                       HasShadow="False"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       HeightRequest="45">
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Entry x:Name="FirstNameEntry"
+                               Placeholder="Prénom"
+                               Margin="10,0" />
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="0"
+                       HasShadow="False"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       HeightRequest="45">
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Entry x:Name="LastNameEntry"
+                               Placeholder="Nom"
+                               Margin="10,0" />
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="0"
+                       HasShadow="False"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       HeightRequest="45">
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Entry x:Name="PhoneEntry"
+                               Placeholder="Téléphone"
+                               Margin="10,0" />
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="0"
+                       HasShadow="False"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       HeightRequest="45">
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Entry x:Name="EmailEntry"
+                               Placeholder="Email"
+                               Margin="10,0" />
+                    </Grid>
+                </Frame>
+
+                <Button Text="S'inscrire"
+                        BackgroundColor="#6366F1"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="5"
+                        HeightRequest="45" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

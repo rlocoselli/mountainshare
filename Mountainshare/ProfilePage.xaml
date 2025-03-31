@@ -9,34 +9,37 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="20">
 
-            <!-- Carte Profil -->
             <Frame CornerRadius="15" Padding="15" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </Frame.GestureRecognizers>
+
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Frame Padding="0"
-                       CornerRadius="30"
-                       WidthRequest="60"
-                       HeightRequest="60"
-                       HasShadow="False"
-                       IsClippedToBounds="True"
-                       VerticalOptions="Center">
+                        CornerRadius="30"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        HasShadow="False"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Center">
                         <Image Source="guide1.jpeg"
                            WidthRequest="60"
                            HeightRequest="60"
                            Aspect="AspectFill"
-                           VerticalOptions="Center" />  
+                           VerticalOptions="Center" />
                     </Frame>
-
 
                     <StackLayout VerticalOptions="Center">
                         <Label Text="Alex Johnson" 
-                               FontAttributes="Bold" 
-                               FontSize="18" />
+                           FontAttributes="Bold" 
+                           FontSize="18" />
                         <Label Text="alex.johnson@example.com" 
-                               FontSize="13" 
-                               TextColor="Gray" />
+                           FontSize="13" 
+                           TextColor="Gray" />
                     </StackLayout>
                 </StackLayout>
             </Frame>
+
 
             <!-- Boutons -->
             <Button Text="Mes annonces"
@@ -49,15 +52,11 @@
                     TextColor="White"
                     CornerRadius="10" />
 
-            <Button Text="Update Personal Information"
-                    BackgroundColor="#6366F1"
-                    TextColor="White"
-                    CornerRadius="10" />
-
             <Button Text="Change Password"
                     BackgroundColor="#6366F1"
                     TextColor="White"
-                    CornerRadius="10" />
+                    CornerRadius="10" 
+                    Clicked="OnChangePassword"/>
 
             <!-- Bouton Log Out -->
             <Button Text="Log Out"

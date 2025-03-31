@@ -5,110 +5,76 @@
              Title="Messages">
 
 
-    <ScrollView>
-        <StackLayout Padding="20" Spacing="15">
+    <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">
-                <Grid ColumnDefinitions="*,Auto">
+        <Frame CornerRadius="10" BorderColor="black" Padding="2" BackgroundColor="White" Margin="20,10,20,10">
+            <Grid ColumnDefinitions="*,Auto">
+                <Entry x:Name="SearchEntry"
+                   Placeholder="Search messages or contacts"
+                   PlaceholderColor="Black"
+                   TextColor="Black"
+                   FontSize="15"
+                   BackgroundColor="Transparent"
+                   TextChanged="OnSearchTextChanged"
+                   Grid.Column="0" />
 
-                    <Entry Placeholder="Search messages or contacts" 
-                       PlaceholderColor="Black"
-                       TextColor="Black"
-                       FontSize="15"            
-                       BackgroundColor="Transparent"
-                       Grid.Column="0" />
+                <Image Source="search.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Grid.Column="1"/>
+            </Grid>
+        </Frame>
 
+        <CollectionView x:Name="MessagesCollectionView" SelectionMode="None" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="15"
+                       HasShadow="True"
+                       WidthRequest="295"
+                       Padding="10"
+                       Margin="0,10"
+                       BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMessageTapped" />
+                        </Frame.GestureRecognizers>
 
-                    <Image Source="search.png"
-                       HeightRequest="30"
-                       WidthRequest="30"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       Grid.Column="1"/>
-                </Grid>
-            </Frame>
-
-
-            <Frame CornerRadius="15" HasShadow="True" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnMessageTapped" />
-                </Frame.GestureRecognizers>
-
-                <StackLayout Orientation="Horizontal" Spacing="15">
-                    <Frame Padding="0"
-                       CornerRadius="25"
-                       WidthRequest="50"
-                       HeightRequest="50"
-                       HasShadow="False"
-                       IsClippedToBounds="True">
-                        <Image Source="guide1.jpeg"
+                        <StackLayout Orientation="Horizontal" Spacing="15">
+                            <!-- Image de profil -->
+                            <Frame Padding="0"
+                           CornerRadius="25"
                            WidthRequest="50"
                            HeightRequest="50"
-                           Aspect="AspectFill" />
+                           HasShadow="False"
+                           IsClippedToBounds="True">
+                                <Image Source="{Binding Image}"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               Aspect="AspectFill" />
+                            </Frame>
+
+                            <!-- Texte -->
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               FontSize="16" />
+                                <Label Text="{Binding LastMessage}"
+                               FontSize="13"
+                               TextColor="Gray" />
+                            </StackLayout>
+                        </StackLayout>
                     </Frame>
-
-                    <StackLayout>
-                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
-                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-
-
-            <Frame CornerRadius="15" HasShadow="True" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnMessageTapped" />
-                </Frame.GestureRecognizers>
-
-                <StackLayout Orientation="Horizontal" Spacing="15">
-                    <Frame Padding="0"
-                       CornerRadius="25"
-                       WidthRequest="50"
-                       HeightRequest="50"
-                       HasShadow="False"
-                       IsClippedToBounds="True">
-                        <Image Source="guide1.jpeg"
-                           WidthRequest="50"
-                           HeightRequest="50"
-                           Aspect="AspectFill" />
-                    </Frame>
-
-                    <StackLayout>
-                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
-                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
 
 
-            <Frame CornerRadius="15" HasShadow="True" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnMessageTapped" />
-                </Frame.GestureRecognizers>
 
-                <StackLayout Orientation="Horizontal" Spacing="15">
-                    <Frame Padding="0"
-                       CornerRadius="25"
-                       WidthRequest="50"
-                       HeightRequest="50"
-                       HasShadow="False"
-                       IsClippedToBounds="True">
-                        <Image Source="guide1.jpeg"
-                           WidthRequest="50"
-                           HeightRequest="50"
-                           Aspect="AspectFill" />
-                    </Frame>
 
-                    <StackLayout>
-                        <Label Text="Alex Johnson" FontAttributes="Bold" FontSize="16" />
-                        <Label Text="Hey, how are you doing today?" FontSize="13" TextColor="Gray" />
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
+    </VerticalStackLayout>
 
-        </StackLayout>
-    </ScrollView>
 
 
 </ContentPage>
