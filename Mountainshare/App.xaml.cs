@@ -7,7 +7,7 @@ namespace OutdoorShareMauiApp
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }
