@@ -10,8 +10,6 @@ namespace OutdoorShareMauiApp.Pages
     {
         public ObservableCollection<SkiMaterial> Materials { get; set; }
 
-        
-
         public HomePage()
         {
             InitializeComponent();
@@ -56,16 +54,6 @@ namespace OutdoorShareMauiApp.Pages
         private async void OnLoginToggleClicked(object sender, EventArgs e)
         {
             var appShell = Shell.Current as AppShell;
-            if (appShell == null)
-                return;
-
-            // On inverse la valeur de connexion
-            appShell.IsUserLoggedIn = !appShell.IsUserLoggedIn;
-
-            LoginToggleButton.Text = appShell.IsUserLoggedIn ? "Se déconnecter" : "Se connecter";
-
-
-            await DisplayAlert("État", $"Connecté : {appShell.IsUserLoggedIn}", "OK");
         }
 
     }

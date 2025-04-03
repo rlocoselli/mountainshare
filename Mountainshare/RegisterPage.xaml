@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.RegisterPage"
-             Title="RegisterPage">
+             Title="RegisterPage"
+             Shell.NavBarIsVisible="False"
+             Shell.BackButtonBehavior="{StaticResource NoBackButton}">
     <Grid>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand"
@@ -107,6 +109,14 @@
                     CornerRadius="5"
                     HeightRequest="45"
                     Clicked="OnRegisterClicked"/>
+
+            <Button Text="Annuler"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    HeightRequest="45"
+                    Clicked="OnCancelClicked"/>
 
         </StackLayout>
     </Grid>

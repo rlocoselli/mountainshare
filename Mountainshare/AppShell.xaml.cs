@@ -17,31 +17,8 @@ namespace OutdoorShareMauiApp
 
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
 
-            this.Navigating += OnShellNavigating;
-
             Shell.SetTabBarTitleColor(this, Color.FromArgb("#6366F1"));
             Shell.SetTabBarUnselectedColor(this, Colors.Black);
-
         }
-
-        public bool IsUserLoggedIn { get; set; } = false;
-
-        private async void OnShellNavigating(object sender, ShellNavigatingEventArgs e)
-        {
-            var protectedRoutes = new[]
-            {
-            "FavorisPage",
-            "PublishPage",
-            "MessagesPage",
-            "ProfilePage"
-        };
-
-            if (!IsUserLoggedIn && protectedRoutes.Any(p => e.Target.Location.OriginalString.Contains(p)))
-            {
-                e.Cancel();
-                await Navigation.PushAsync(new LoginPage());
-            }
-        }
-
     }
 }

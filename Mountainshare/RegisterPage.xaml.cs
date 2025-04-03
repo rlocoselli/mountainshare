@@ -49,6 +49,10 @@ public partial class RegisterPage : ContentPage
         return hasUpper && hasLower && hasDigit && hasSpecial;
     }
 
+    private async void OnCancelClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage());
+    }
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
