@@ -1,10 +1,11 @@
 using Microsoft.Maui.Controls;
+using OutdoorShareMauiApp.Helpers;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace OutdoorShareMauiApp.Pages
 {
-    public partial class MessagesPage : ContentPage
+    public partial class MessagesPage : BaseProtectedPage
     {
         private ObservableCollection<MessageModel> allMessages;
         private ObservableCollection<MessageModel> filteredMessages;

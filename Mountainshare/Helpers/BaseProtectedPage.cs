@@ -6,7 +6,7 @@ namespace OutdoorShareMauiApp.Helpers
 {
     public abstract class BaseProtectedPage : ContentPage
     {
-        protected abstract bool IsUserLoggedIn { get; }
+        protected bool IsUserLoggedIn { get; }
 
         private readonly string[] protectedRoutes = new[]
         {

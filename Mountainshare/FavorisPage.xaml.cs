@@ -9,7 +9,5 @@ namespace OutdoorShareMauiApp.Pages
         {
             InitializeComponent();
         }
-
-        protected override bool IsUserLoggedIn => false;
     }
 }
