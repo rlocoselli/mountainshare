@@ -68,5 +68,11 @@ namespace OutdoorShareMauiApp.Pages
             await DisplayAlert("État", $"Connecté : {appShell.IsUserLoggedIn}", "OK");
         }
 
+        private async void OnFrameTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DetailProductPage());
+        }
+
+
     }
 }

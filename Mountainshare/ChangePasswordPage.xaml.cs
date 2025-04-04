@@ -90,4 +90,10 @@ public partial class ChangePasswordPage : ContentPage
 
 
     }
+
+    private async void ResetPasswordPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ResetPasswordPage());
+    }
+
 }

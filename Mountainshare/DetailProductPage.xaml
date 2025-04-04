@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OutdoorShareMauiApp.DetailProductPage"
+             Title="DetailProductPage">
+    <ScrollView>
+        <StackLayout Padding="15" Spacing="20">
+
+
+            <Image Source="bike.jpeg"
+               HeightRequest="200"
+               Aspect="AspectFill"
+               Margin="0,0,0,10" />
+
+            <!-- Titre et description courte -->
+            <Label Text="VTT"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+            <Label Text="High-quality gear ideal for both beginners and experienced hikers. Includes ropes, harnesses, and carabiners."
+               FontSize="13"
+               TextColor="Gray" />
+
+            <!-- Étoiles + avis -->
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <Label Text="Avis:" FontSize="13" />
+                <Label Text="★★★★★" TextColor="#FFD700" FontSize="13" />
+                <Label Text="(4.8)" FontSize="13" TextColor="Gray" />
+            </StackLayout>
+
+            <!-- Détails de location -->
+            <Label Text=" Détails de location"
+               FontAttributes="Bold"
+               FontSize="16" />
+
+            <Label Text="Price: $25/day"
+               FontSize="14" />
+
+
+            <!-- Bouton principal -->
+            <Button Text="Contacter le vendeur"
+                BackgroundColor="#5A7DFF"
+                TextColor="White"
+                CornerRadius="8" />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -63,6 +63,11 @@
 
 
                     <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnFrameTapped" />
+                        </Frame.GestureRecognizers>
+
                         <StackLayout>
                             <Image Source="ski_set.png" HeightRequest="100" Aspect="AspectFill"/>
                             <Label Text="HEAD" FontAttributes="Bold" FontSize="14"/>
@@ -70,6 +75,7 @@
                             <Label Text="Grenoble" FontSize="12" TextColor="Gray"/>
                         </StackLayout>
                     </Frame>
+
 
                     <Frame WidthRequest="150" CornerRadius="10" HasShadow="True" BackgroundColor="White">
                         <StackLayout>

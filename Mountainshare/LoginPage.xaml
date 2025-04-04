@@ -23,46 +23,53 @@
             </Frame>
 
 
-            <Frame Padding="0"
+            <VerticalStackLayout Spacing="5">
+
+                <!-- Frame contenant le mot de passe -->
+                <Frame Padding="0"
                    HasShadow="False"
                    BorderColor="Black"
                    CornerRadius="5"
                    HeightRequest="45">
-                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
-                    <Entry x:Name="PasswordEntry"
-                           Placeholder="**********"
-                           IsPassword="True"
-                           Margin="10,0"
-                           />
-                    <ImageButton Source="eye_icon.png"
-                                 BackgroundColor="Transparent"
-                                 WidthRequest="30"
-                                 HeightRequest="30"
-                                 VerticalOptions="Center"
-                                 Clicked="OnTogglePasswordVisibility"
-                                 HorizontalOptions="End"
-                                 Margin="0,0,15,0"/>
-                </Grid>
-            </Frame>
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Entry x:Name="PasswordEntry"
+                       Placeholder="**********"
+                       IsPassword="True"
+                       Margin="10,0"/>
+                        <ImageButton Source="eye_icon.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             VerticalOptions="Center"
+                             Clicked="OnTogglePasswordVisibility"
+                             HorizontalOptions="End"
+                             Margin="0,0,15,0"/>
+                    </Grid>
+                </Frame>
 
-
-            <Grid ColumnDefinitions="*,auto" Padding="2,0">
-                <Label Text="Mot de passe oublier ?"
+                <!-- Ligne de texte : oublier / inscription -->
+                <Grid ColumnDefinitions="*,Auto" Padding="2,0">
+                    <Label Text="Mot de passe oublier ?"
                        TextColor="#6366F1"
                        FontSize="13"
-                       HorizontalOptions="Start">
+                       HorizontalOptions="Start" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
 
-                </Label>
-
-                <Label Text="Inscription"
+                    <Label Text="Inscription"
                        TextColor="#6366F1"
                        FontSize="13"
                        HorizontalOptions="End">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRegisterTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </Grid>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRegisterTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+            </VerticalStackLayout>
+
 
 
             <Button Text="Connection"

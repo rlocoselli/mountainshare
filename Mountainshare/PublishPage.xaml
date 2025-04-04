@@ -4,45 +4,37 @@
              x:Class="OutdoorShareMauiApp.Pages.PublishPage"
              Title="Stations de Ski">
 
+
+    <ContentPage.Resources>
+        <GridItemsLayout x:Key="GridItemsLayout" Orientation="Vertical" Span="2" />
+    </ContentPage.Resources>
+
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
 
-
-            <Label Text="Ajoutd'un Produit" 
+            <Label Text="Ajout d'un Produit" 
                    FontSize="22" 
                    FontAttributes="Bold" 
                    TextColor="Black" />
 
-
-            <Border Stroke="Black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 8"
-                Background="#F6F6F6"
-                Padding="0"
-                Margin="0,0,0,10">
+            <!-- Champ : Nom -->
+            <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
                 <Entry Placeholder="Nom Du Produit"
-                   BackgroundColor="Transparent"
-                   HeightRequest="50"
-                   FontSize="14"
-                   TextColor="Black"
-                   Margin="8,0"/>
+                       BackgroundColor="Transparent"
+                       HeightRequest="50"
+                       FontSize="14"
+                       TextColor="Black"
+                       Margin="8,0"/>
             </Border>
 
-
-
-            <Border Stroke="Black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 8"
-                Background="#F6F6F6"
-                Padding="0"
-                Margin="0,0,0,10">
-                <Picker
-                    Title="Choisissez une catégorie"
-                    BackgroundColor="Transparent"
-                    HeightRequest="50"
-                    FontSize="14"
-                    TextColor="Black"
-                    Margin="8,0">
+            <!-- Champ : Catégorie -->
+            <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
+                <Picker Title="Choisissez une catégorie"
+                        BackgroundColor="Transparent"
+                        HeightRequest="50"
+                        FontSize="14"
+                        TextColor="Black"
+                        Margin="8,0">
                     <Picker.Items>
                         <x:String>Randonnée</x:String>
                         <x:String>Matériel d'escalade</x:String>
@@ -55,74 +47,77 @@
                 </Picker>
             </Border>
 
-
-
-
-            <Border Stroke="Black"
-                StrokeThickness="1"
-                StrokeShape="RoundRectangle 8"
-                Background="#F6F6F6"
-                Padding="0"
-                Margin="0,0,0,10">
+            <!-- Champ : Prix -->
+            <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
                 <Entry Placeholder="Prix"
-                   Keyboard="Numeric"
-                   BackgroundColor="Transparent"
-                   HeightRequest="50"
-                   FontSize="14"
-                   TextColor="Black"
-                   Margin="8,0" />
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"
+                       HeightRequest="50"
+                       FontSize="14"
+                       TextColor="Black"
+                       Margin="8,0" />
             </Border>
 
-
-
+            <!-- Champ : Description -->
             <Border Stroke="Gray" StrokeThickness="1" StrokeShape="RoundRectangle 10" Background="#F6F6F6" Padding="0">
                 <Editor Placeholder="Description"
-                    AutoSize="TextChanges"
-                    HeightRequest="100"
-                    BackgroundColor="Transparent"
-                    TextColor="Black"
-                    FontSize="14" />
+                        AutoSize="TextChanges"
+                        HeightRequest="100"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="14" />
             </Border>
 
+            <!-- Galerie de photos -->
+            <Label Text="Photos"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   Margin="0,10,0,5" />
 
+            <CollectionView x:Name="ImageCollectionView"
+                            ItemsLayout="{StaticResource GridItemsLayout}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#F6F6FF"
+                               CornerRadius="10"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HasShadow="False"
+                               Padding="0"
+                               Margin="5"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Grid>
+                                <Image Source="{Binding ImageSource}"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill" />
 
-            <Grid ColumnSpacing="10" RowSpacing="10" Padding="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                                <!-- Bouton d'ajout -->
+                                <ImageButton Source="add_icon.png"
+                                     IsVisible="{Binding IsAddButton}"
+                                     Clicked="OnAddImageClicked"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center" />
 
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
-                </Frame>
-
-                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
-                </Frame>
-
-                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#F6F6FF" CornerRadius="10" HeightRequest="100" HasShadow="False" Padding="0" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Image Source="image_placeholder.png" WidthRequest="130" VerticalOptions="Center" HorizontalOptions="Center" />
-                </Frame>
-
-                
-            </Grid>
-
-
+            <!-- Bouton Valider -->
             <Button Text="Add Product"
                     BackgroundColor="#6366F1"
                     TextColor="White"
                     HeightRequest="50"
                     CornerRadius="10"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    Margin="0,20,0,0" />
 
-        
         </StackLayout>
-    
     </ScrollView>
-
 </ContentPage>
