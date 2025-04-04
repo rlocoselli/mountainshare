@@ -5,9 +5,7 @@
              Title="Stations de Ski">
 
 
-    <ContentPage.Resources>
-        <GridItemsLayout x:Key="GridItemsLayout" Orientation="Vertical" Span="2" />
-    </ContentPage.Resources>
+    
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">

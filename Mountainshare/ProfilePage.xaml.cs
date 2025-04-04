@@ -1,9 +1,10 @@
 using Microsoft.Maui.Controls;
+using OutdoorShareMauiApp.Helpers;
 using System.Collections.ObjectModel;
 
 namespace OutdoorShareMauiApp.Pages
 {
-    public partial class ProfilePage : ContentPage
+    public partial class ProfilePage : BaseProtectedPage
     {
         public ObservableCollection<string> Images { get; set; }
 

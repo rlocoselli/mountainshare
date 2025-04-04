@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<helpers:BaseProtectedPage 
     x:Class="OutdoorShareMauiApp.Pages.ProfilePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:helpers="clr-namespace:OutdoorShareMauiApp.Helpers"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
@@ -66,4 +67,4 @@
 
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</helpers:BaseProtectedPage>
