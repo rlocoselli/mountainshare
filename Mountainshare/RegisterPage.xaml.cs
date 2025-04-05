@@ -1,3 +1,5 @@
+using OutdoorShareMauiApp.Services;
+
 namespace OutdoorShareMauiApp;
 
 public partial class RegisterPage : ContentPage
@@ -56,12 +58,14 @@ public partial class RegisterPage : ContentPage
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
+        string email = EmailEntry.Text;
         string password = PasswordEntry.Text;
         string confirmPassword = ConfirmPasswordEntry.Text;
 
-        if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+        if (string.IsNullOrWhiteSpace(email) ||
+            string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
         {
-            await DisplayAlert("Erreur", "Veuillez remplir les deux champs de mot de passe.", "OK");
+            await DisplayAlert("Erreur", "Veuillez remplir tous les champs.", "OK");
             return;
         }
 
@@ -79,12 +83,19 @@ public partial class RegisterPage : ContentPage
             return;
         }
 
+        var apiService = new ApiService();
+        string result = await apiService.RegisterUser(email, password, email);
 
-        await DisplayAlert("Succès", "Inscription réussie (logique à compléter).", "OK");
-
-
+        if (result.Contains("User created successfully"))
+        {
+            await DisplayAlert("Succès", "Inscription réussie", "OK");
+            await Navigation.PushAsync(new LoginPage());
+        }
+        else
+        {
+            await DisplayAlert("Erreur", result, "OK");
+        }
     }
-
 
     private async void OnRegLoginTapped(object sender, EventArgs e)
     {

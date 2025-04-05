@@ -72,10 +72,8 @@
 
             </VerticalStackLayout>
 
-
-
             <Button Text="Connection"
-                    Clicked="OnConnect"
+                    Clicked="OnLoginClicked"
                     BackgroundColor="#6366F1"
                     TextColor="White"
                     FontAttributes="Bold"
