@@ -120,6 +120,7 @@ namespace OutdoorShareMauiApp.Services
                     {
                         string token = loginResponse["token"];
                         SaveSession(token);
+                        Preferences.Set("auth_token", token); // stocker le token
                         return "Login successful";
                     }
                     return "Error: Token not found in response";

@@ -38,7 +38,7 @@ public partial class LoginPage : ContentPage
 
         if (result.Contains("successful"))
         {
-            Preferences.Set("auth_token", result); // stocker le token
+           
             await DisplayAlert("Succès", "Connexion réussie", "OK");
         }
         else
