@@ -20,6 +20,8 @@ namespace OutdoorShareMauiApp.Pages
             ImageCollectionView.ItemsSource = Photos;
         }
 
+
+
         private async void OnAddImageClicked(object sender, EventArgs e)
         {
             if (Photos.Count(p => !p.IsAddButton) >= 4)
