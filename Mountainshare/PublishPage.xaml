@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<helpers:BaseProtectedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OutdoorShareMauiApp.Pages.PublishPage"
+             xmlns:helpers="clr-namespace:OutdoorShareMauiApp.Helpers"
              Title="Stations de Ski">
 
-
-    
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
@@ -68,30 +67,33 @@
 
             <!-- Galerie de photos -->
             <Label Text="Photos"
-                   FontSize="18"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   Margin="0,10,0,5" />
+                FontSize="18"
+                FontAttributes="Bold"
+                TextColor="Black"
+                Margin="0,10,0,5" />
 
             <CollectionView x:Name="ImageCollectionView"
-                            ItemsLayout="{StaticResource GridItemsLayout}"
-                            SelectionMode="None">
+                SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="#F6F6FF"
-                               CornerRadius="10"
-                               HeightRequest="150"
-                               WidthRequest="150"
-                               HasShadow="False"
-                               Padding="0"
-                               Margin="5"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center">
+                            CornerRadius="10"
+                            HeightRequest="150"
+                            WidthRequest="150"
+                            HasShadow="False"
+                            Padding="0"
+                            Margin="5"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
                             <Grid>
                                 <Image Source="{Binding ImageSource}"
-                                   Aspect="AspectFill"
-                                   HorizontalOptions="Fill"
-                                   VerticalOptions="Fill" />
+                                    Aspect="AspectFill"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill" />
 
                                 <!-- Bouton d'ajout -->
                                 <ImageButton Source="add_icon.png"
@@ -100,12 +102,12 @@
                                      BackgroundColor="Transparent"
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center" />
-
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
 
             <!-- Bouton Valider -->
             <Button Text="Add Product"
@@ -118,4 +120,4 @@
 
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</helpers:BaseProtectedPage>

@@ -17,7 +17,7 @@ public partial class LoginPage : ContentPage
         isPasswordHidden = !isPasswordHidden;
         PasswordEntry.IsPassword = isPasswordHidden;
 
-        // Optionnel : changer l’icône selon l’état
+
         var imageButton = sender as ImageButton;
         imageButton.Source = isPasswordHidden ? "eye_icon.png" : "eye_off_icon.png";
     }

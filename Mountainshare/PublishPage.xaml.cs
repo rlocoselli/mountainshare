@@ -1,14 +1,44 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using OutdoorShareMauiApp.Helpers;
 using Microsoft.Maui.Controls;
+using System.Net.Http.Headers;
 //using Microsoft.Maui.Essentials;
 
 namespace OutdoorShareMauiApp.Pages
 {
-    public partial class PublishPage : ContentPage
+    public partial class PublishPage : BaseProtectedPage
     {
         private ObservableCollection<PhotoItem> Photos { get; set; } = new();
+
+        public async Task<string> PublishPhotosAsync(List<string> photoPaths)
+        {
+            var client = new HttpClient();
+            string token = Preferences.Get("auth_token", "");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var form = new MultipartFormDataContent();
+
+            foreach (var path in photoPaths)
+            {
+                var fileBytes = File.ReadAllBytes(path);
+                var fileContent = new ByteArrayContent(fileBytes);
+                fileContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+
+                form.Add(fileContent, "photos", Path.GetFileName(path));
+            }
+
+            var response = await client.PostAsync("https://tonapi.com/api/photos/publish", form);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return "ok";
+            }
+
+            return $"error: {response.StatusCode}";
+        }
 
         public PublishPage()
         {
@@ -33,7 +63,7 @@ namespace OutdoorShareMauiApp.Pages
 
                 if (result != null)
                 {
-                    // Remplacer le bouton actuel par l’image sélectionnée
+
                     var addItem = Photos.FirstOrDefault(p => p.IsAddButton);
                     if (addItem != null)
                     {
@@ -41,13 +71,13 @@ namespace OutdoorShareMauiApp.Pages
                         addItem.IsAddButton = false;
                     }
 
-                    // Ajouter un nouveau bouton s’il reste de la place
+
                     if (Photos.Count < 4)
                     {
                         Photos.Add(new PhotoItem { IsAddButton = true });
                     }
 
-                    // Forcer le rafraîchissement de la liste
+
                     ImageCollectionView.ItemsSource = null;
                     ImageCollectionView.ItemsSource = Photos;
                 }
