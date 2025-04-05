@@ -1,23 +1,27 @@
+
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
 using OutdoorShareMauiApp.Helpers;
-using System.Collections.ObjectModel;
 
 namespace OutdoorShareMauiApp.Pages
 {
     public partial class ProfilePage : BaseProtectedPage
     {
-        public ObservableCollection<string> Images { get; set; }
-
         public ProfilePage()
         {
             InitializeComponent();
 
-            Images = new ObservableCollection<string>
-            {
-                @"http://www.meubusao.com/images/ic_launcher2.png",
-            };
+            // Load user profile on page load
+            LoadUserProfile();
+        }
 
-            BindingContext = Images;
+        private void LoadUserProfile()
+        {
+            // Retrieve username from session
+            string username = Preferences.Get("Username", "Utilisateur");
+
+            // Display the username on the profile page
+            name.Text = $"{username}";
         }
 
         private async void OnProfileTapped(object sender, EventArgs e)
@@ -29,6 +33,5 @@ namespace OutdoorShareMauiApp.Pages
         {
             await Navigation.PushAsync(new ChangePasswordPage());
         }
-
     }
 }

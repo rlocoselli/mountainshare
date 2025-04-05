@@ -1,12 +1,14 @@
-﻿using Microsoft.Maui.Controls;
+
+using Microsoft.Maui.Controls;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Maui.Storage;
 
 namespace OutdoorShareMauiApp.Helpers
 {
     public abstract class BaseProtectedPage : ContentPage
     {
-        protected bool IsUserLoggedIn { get; }
+        protected bool IsUserLoggedIn => Preferences.ContainsKey("AuthToken");
 
         private readonly string[] protectedRoutes = new[]
         {
@@ -30,12 +32,10 @@ namespace OutdoorShareMauiApp.Helpers
         {
             base.OnAppearing();
 
-            NavigateToLoginPage();
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
+            if (!IsUserLoggedIn)
+            {
+                NavigateToLoginPage();
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using OutdoorShareMauiApp.Pages;
 using OutdoorShareMauiApp.Services;
 
 namespace OutdoorShareMauiApp;
@@ -38,7 +39,10 @@ public partial class LoginPage : ContentPage
 
         if (result.Contains("successful"))
         {
+            Preferences.Set("AuthToken", apiService.GetAuthToken());
+            Preferences.Set("Username", username);
             await DisplayAlert("Succès", "Connexion réussie", "OK");
+            await Navigation.PushAsync(new HomePage());
         }
         else
         {

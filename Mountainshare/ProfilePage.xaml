@@ -31,11 +31,11 @@
                     </Frame>
 
                     <StackLayout VerticalOptions="Center">
-                        <Label Text="Alex Johnson" 
+                        <Label x:Name="name" Text="Alex Johnson" 
                            FontAttributes="Bold" 
-                           FontSize="18" />
-                        <Label Text="alex.johnson@example.com" 
-                           FontSize="13" 
+                           FontSize="18"  />
+                        <Label x:Name="mail" Text="alex.johnson@example.com" 
+                           FontSize="13"                        
                            TextColor="Gray" />
                     </StackLayout>
                 </StackLayout>
