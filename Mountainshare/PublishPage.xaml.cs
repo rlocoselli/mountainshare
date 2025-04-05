@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using OutdoorShareMauiApp.Helpers;
 using Microsoft.Maui.Controls;
-using System.Net.Http.Headers;
 //using Microsoft.Maui.Essentials;
 
 namespace OutdoorShareMauiApp.Pages
@@ -11,34 +10,6 @@ namespace OutdoorShareMauiApp.Pages
     public partial class PublishPage : BaseProtectedPage
     {
         private ObservableCollection<PhotoItem> Photos { get; set; } = new();
-
-        public async Task<string> PublishPhotosAsync(List<string> photoPaths)
-        {
-            var client = new HttpClient();
-            string token = Preferences.Get("auth_token", "");
-
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            var form = new MultipartFormDataContent();
-
-            foreach (var path in photoPaths)
-            {
-                var fileBytes = File.ReadAllBytes(path);
-                var fileContent = new ByteArrayContent(fileBytes);
-                fileContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
-
-                form.Add(fileContent, "photos", Path.GetFileName(path));
-            }
-
-            var response = await client.PostAsync("https://tonapi.com/api/photos/publish", form);
-
-            if (response.IsSuccessStatusCode)
-            {
-                return "ok";
-            }
-
-            return $"error: {response.StatusCode}";
-        }
 
         public PublishPage()
         {
