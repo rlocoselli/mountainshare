@@ -2,14 +2,15 @@
 <helpers:BaseProtectedPage 
     x:Class="OutdoorShareMauiApp.Pages.ProfilePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:helpers="clr-namespace:OutdoorShareMauiApp.Helpers"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:OutdoorShareMauiApp.Helpers"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="20">
 
+            <!-- Profil utilisateur -->
             <Frame CornerRadius="15" Padding="15" HasShadow="True">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnProfileTapped" />
@@ -17,17 +18,17 @@
 
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Frame Padding="0"
-                        CornerRadius="30"
-                        WidthRequest="60"
-                        HeightRequest="60"
-                        HasShadow="False"
-                        IsClippedToBounds="True"
-                        VerticalOptions="Center">
-                        <Image Source="guide1.jpeg"
+                           CornerRadius="30"
                            WidthRequest="60"
                            HeightRequest="60"
-                           Aspect="AspectFill"
-                           VerticalOptions="Center" />
+                           HasShadow="False"
+                           IsClippedToBounds="True"
+                           VerticalOptions="Center">
+                        <Image Source="guide1.jpeg"
+                               WidthRequest="60"
+                               HeightRequest="60"
+                               Aspect="AspectFill"
+                               VerticalOptions="Center" />
                     </Frame>
 
                     <StackLayout VerticalOptions="Center">
@@ -41,14 +42,13 @@
                 </StackLayout>
             </Frame>
 
-
-            <!-- Boutons -->
+            <!-- Actions -->
             <Button Text="Mes annonces"
                     BackgroundColor="#6366F1"
                     TextColor="White"
                     CornerRadius="10" />
 
-            <Button Text="Demande de reservation"
+            <Button Text="Demande de réservation"
                     BackgroundColor="#6366F1"
                     TextColor="White"
                     CornerRadius="10" />
@@ -56,14 +56,15 @@
             <Button Text="Change Password"
                     BackgroundColor="#6366F1"
                     TextColor="White"
-                    CornerRadius="10" 
-                    Clicked="OnChangePassword"/>
+                    CornerRadius="10"
+                    Clicked="OnChangePassword" />
 
             <!-- Bouton Log Out -->
             <Button Text="Log Out"
                     BackgroundColor="#CBD5E1"
                     TextColor="Black"
-                    CornerRadius="10" />
+                    CornerRadius="10"
+                     />
 
         </StackLayout>
     </ScrollView>

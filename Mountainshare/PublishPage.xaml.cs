@@ -1,12 +1,13 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using OutdoorShareMauiApp.Helpers;
 using Microsoft.Maui.Controls;
 //using Microsoft.Maui.Essentials;
 
 namespace OutdoorShareMauiApp.Pages
 {
-    public partial class PublishPage : ContentPage
+    public partial class PublishPage : BaseProtectedPage
     {
         private ObservableCollection<PhotoItem> Photos { get; set; } = new();
 
@@ -18,6 +19,8 @@ namespace OutdoorShareMauiApp.Pages
 
             ImageCollectionView.ItemsSource = Photos;
         }
+
+
 
         private async void OnAddImageClicked(object sender, EventArgs e)
         {
@@ -33,7 +36,7 @@ namespace OutdoorShareMauiApp.Pages
 
                 if (result != null)
                 {
-                    // Remplacer le bouton actuel par l’image sélectionnée
+
                     var addItem = Photos.FirstOrDefault(p => p.IsAddButton);
                     if (addItem != null)
                     {
@@ -41,13 +44,13 @@ namespace OutdoorShareMauiApp.Pages
                         addItem.IsAddButton = false;
                     }
 
-                    // Ajouter un nouveau bouton s’il reste de la place
+
                     if (Photos.Count < 4)
                     {
                         Photos.Add(new PhotoItem { IsAddButton = true });
                     }
 
-                    // Forcer le rafraîchissement de la liste
+
                     ImageCollectionView.ItemsSource = null;
                     ImageCollectionView.ItemsSource = Photos;
                 }
