@@ -17,6 +17,7 @@
             <!-- Champ : Nom -->
             <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
                 <Entry Placeholder="Nom Du Produit"
+                       x:Name="TitleEntry"
                        BackgroundColor="Transparent"
                        HeightRequest="50"
                        FontSize="14"
@@ -27,6 +28,7 @@
             <!-- Champ : Catégorie -->
             <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
                 <Picker Title="Choisissez une catégorie"
+                        x:Name="CategoryPicker"
                         BackgroundColor="Transparent"
                         HeightRequest="50"
                         FontSize="14"
@@ -47,6 +49,7 @@
             <!-- Champ : Prix -->
             <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
                 <Entry Placeholder="Prix"
+                       x:Name="PriceEntry"
                        Keyboard="Numeric"
                        BackgroundColor="Transparent"
                        HeightRequest="50"
@@ -58,6 +61,7 @@
             <!-- Champ : Description -->
             <Border Stroke="Gray" StrokeThickness="1" StrokeShape="RoundRectangle 10" Background="#F6F6F6" Padding="0">
                 <Editor Placeholder="Description"
+                        x:Name="DescriptionEditor"
                         AutoSize="TextChanges"
                         HeightRequest="100"
                         BackgroundColor="Transparent"
@@ -111,6 +115,7 @@
 
             <!-- Bouton Valider -->
             <Button Text="Add Product"
+                    Clicked="OnAddMaterialClicked"
                     BackgroundColor="#6366F1"
                     TextColor="White"
                     HeightRequest="50"

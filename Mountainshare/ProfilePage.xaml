@@ -64,7 +64,7 @@
                     BackgroundColor="#CBD5E1"
                     TextColor="Black"
                     CornerRadius="10"
-                     />
+                     Clicked="OnLogoutClicked"/>
 
         </StackLayout>
     </ScrollView>

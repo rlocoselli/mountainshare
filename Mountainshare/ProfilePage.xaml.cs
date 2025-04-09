@@ -33,5 +33,16 @@ namespace OutdoorShareMauiApp.Pages
         {
             await Navigation.PushAsync(new ChangePasswordPage());
         }
+
+        private async void OnLogoutClicked(object sender, EventArgs e)
+        {
+
+            Services.ApiService apiService = new Services.ApiService();
+            apiService.ClearSession();
+
+
+            Application.Current.MainPage = new AppShell();
+
+        }
     }
 }

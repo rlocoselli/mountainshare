@@ -19,6 +19,7 @@
                 <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
                     <Entry x:Name="EmailEntry"
                            Placeholder="Email"
+                           Keyboard="Email"
                            Margin="10,0" />
                 </Grid>
             </Frame>

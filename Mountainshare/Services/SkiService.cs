@@ -99,6 +99,7 @@ namespace OutdoorShareMauiApp.Services
             {
                 var requestData = new
                 {
+                 
                     username = username,
                     password = password
                 };
@@ -136,6 +137,54 @@ namespace OutdoorShareMauiApp.Services
                 return $"Exception: {ex.Message}";
             }
         }
+
+        public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city = "Chamonix", int? skiStationId = null)
+        {
+            try
+            {
+                var userId = Preferences.Get("user_id", 0); 
+                var token = GetAuthToken();
+
+
+                var requestData = new
+                {
+                    title = title,
+                    description = description,
+                    material_type = materialType,
+                    price = price,
+                    city = city,
+                    user = userId,
+                    image = images, 
+                    ski_station = skiStationId
+                };
+
+                var jsonContent = new StringContent(
+                    JsonConvert.SerializeObject(requestData),
+                    Encoding.UTF8,
+                    "application/json"
+                );
+
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", token);
+
+                var response = await client.PostAsync(baseUrl + "skimaterial/", jsonContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return "Matériel ajouté avec succès : " + result;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    return $"Erreur : {response.StatusCode} - {error}";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Exception : {ex.Message}";
+            }
+        }
+
 
 
     }
