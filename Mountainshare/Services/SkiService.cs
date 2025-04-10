@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 
 namespace OutdoorShareMauiApp.Services
@@ -16,7 +17,7 @@ namespace OutdoorShareMauiApp.Services
 
     public class ApiService
     {
-        private static readonly HttpClient client = new HttpClient();
+        private readonly HttpClient client = new HttpClient();
         private const string baseUrl = "https://skistation-11242cad9673.herokuapp.com/api/";
 
         public async Task<List<SkiMaterial>> GetSkiMaterialsAsync()
@@ -24,6 +25,7 @@ namespace OutdoorShareMauiApp.Services
             try
             {
                 var response = await client.GetStringAsync(baseUrl + "skimaterial");
+                
                 return JsonConvert.DeserializeObject<List<SkiMaterial>>(response);
             }
             catch (Exception ex)
