@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 
 namespace OutdoorShareMauiApp.Services
 {
@@ -13,6 +15,18 @@ namespace OutdoorShareMauiApp.Services
         public decimal Price { get; set; }
         public string MaterialType { get; set; }
         public DateTime PostedAt { get; set; }
+    }
+
+    public class UserProfile
+    {
+        public int Id { get; set; }
+        public string Bio { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string ProfileImage { get; set; } 
+        public string Gender { get; set; }
+        public string Birthday { get; set; }
+        public string User { get; set; }
     }
 
     public class ApiService
@@ -138,6 +152,34 @@ namespace OutdoorShareMauiApp.Services
             {
                 return $"Exception: {ex.Message}";
             }
+        }
+
+        public async Task<UserProfile> GetMyProfileAsync()
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", this.GetAuthToken());
+
+                var response = await client.GetAsync(baseUrl + "userprofiles/me/");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var profile = System.Text.Json.JsonSerializer.Deserialize<UserProfile>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                    return profile;
+                }
+                else
+                {
+                    Console.WriteLine($"Erreur API : {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur : {ex.Message}");
+            }
+            return null;
         }
 
         public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city = "Chamonix", int? skiStationId = null)
