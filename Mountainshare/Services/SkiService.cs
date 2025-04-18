@@ -17,17 +17,24 @@ namespace OutdoorShareMauiApp.Services
         public DateTime PostedAt { get; set; }
     }
 
+    public class User
+    {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public bool Is_Staff { get; set; }
+        public DateTime Date_Joined { get; set; }
+    }
+
     public class UserProfile
     {
         public int Id { get; set; }
-        public string Bio { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
-        public string ProfileImage { get; set; } 
-        public string Gender { get; set; }
-        public string Birthday { get; set; }
-        public string User { get; set; }
+        public User User { get; set; }
+        public string? Profile_Picture { get; set; } // nullable in case it's null
     }
+
 
     public class ApiService
     {
@@ -160,7 +167,7 @@ namespace OutdoorShareMauiApp.Services
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", this.GetAuthToken());
 
-                var response = await client.GetAsync(baseUrl + "userprofiles/me/");
+                var response = await client.GetAsync(baseUrl + "userprofile/me/");
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();

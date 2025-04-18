@@ -49,6 +49,8 @@ public partial class LoginPage : ContentPage
         {
             await DisplayAlert("Erreur", result, "OK");
         }
+
+        await apiService.GetMyProfileAsync();
     }
 
     private async void OnRegisterTapped(object sender, EventArgs e)
