@@ -3,6 +3,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using OutdoorShareMauiApp;
+
+
 
 namespace OutdoorShareMauiApp.Services
 {
@@ -10,10 +13,10 @@ namespace OutdoorShareMauiApp.Services
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public string City { get; set; }
-        public decimal Price { get; set; }
         public string MaterialType { get; set; }
+        public string City { get; set; }
+        public decimal Price { get; set; }  
+        public string Description { get; set; }
         public DateTime PostedAt { get; set; }
     }
 
@@ -102,6 +105,7 @@ namespace OutdoorShareMauiApp.Services
         public void ClearSession()
         {
             Preferences.Remove("AuthToken");
+            Preferences.Remove("user_id");
             Preferences.Remove("IsLogged");
             client.DefaultRequestHeaders.Authorization = null;
         }
@@ -134,17 +138,26 @@ namespace OutdoorShareMauiApp.Services
                 );
 
                 var response = await client.PostAsync(baseUrl + "login/", jsonContent);
+                var response2 = await client.GetAsync(baseUrl + "userprofile/me/");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
+
+                    var responseContent2 = await response2.Content.ReadAsStringAsync();
+
                     var loginResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+                    var userProfile = JsonConvert.DeserializeObject<UserProfile>(responseContent2);
+                    
+                    int userId = userProfile.User.Id;
+                    Preferences.Set("user_id", userId); 
+
 
                     if (loginResponse.ContainsKey("token"))
                     {
                         string token = loginResponse["token"];
                         SaveSession(token);
-                        Preferences.Set("auth_token", token); // stocker le token
+                        Preferences.Set("auth_token", token);
                         return "Login successful";
                     }
                     return "Error: Token not found in response";
@@ -189,7 +202,7 @@ namespace OutdoorShareMauiApp.Services
             return null;
         }
 
-        public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city = "Chamonix", int? skiStationId = null)
+        public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city )
         {
             try
             {
@@ -205,8 +218,7 @@ namespace OutdoorShareMauiApp.Services
                     price = price,
                     city = city,
                     user = userId,
-                    image = images, 
-                    ski_station = skiStationId
+                    image = images
                 };
 
                 var jsonContent = new StringContent(
@@ -239,4 +251,5 @@ namespace OutdoorShareMauiApp.Services
 
 
     }
+
 }

@@ -36,6 +36,7 @@
                         Margin="8,0">
                     <Picker.Items>
                         <x:String>Randonnée</x:String>
+                        <x:String>sale</x:String>
                         <x:String>Matériel d'escalade</x:String>
                         <x:String>Moniteur d'escalade</x:String>
                         <x:String>Skis</x:String>
@@ -56,6 +57,17 @@
                        FontSize="14"
                        TextColor="Black"
                        Margin="8,0" />
+            </Border>
+
+            <!-- Champ : City -->
+            <Border Stroke="Black" StrokeThickness="1" StrokeShape="RoundRectangle 8" Background="#F6F6F6" Padding="0" Margin="0,0,0,10">
+                <Entry Placeholder="Ville"
+                   x:Name="CityEntry"
+                   BackgroundColor="Transparent"
+                   HeightRequest="50"
+                   FontSize="14"
+                   TextColor="Black"
+                   Margin="8,0"/>
             </Border>
 
             <!-- Champ : Description -->

@@ -60,12 +60,14 @@ namespace OutdoorShareMauiApp.Pages
         private async void OnAddMaterialClicked(object sender, EventArgs e)
         {
             var title = TitleEntry.Text;
-            var description = DescriptionEditor.Text;
-            var materialType = CategoryPicker.SelectedItem?.ToString();
+            var materialType = CategoryPicker.SelectedItem?.ToString();     
+            var city = CityEntry.Text;
             var priceText = PriceEntry.Text;
+            var description = DescriptionEditor.Text;
             decimal.TryParse(priceText, out var price);
+            var dateTime = DateTime.Now;
 
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(materialType))
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(materialType) || string.IsNullOrWhiteSpace(city))
             {
                 await DisplayAlert("Erreur", "Veuillez remplir tous les champs obligatoires.", "OK");
                 return;
@@ -73,8 +75,6 @@ namespace OutdoorShareMauiApp.Pages
 
             var userId = Preferences.Get("user_id", 0);
 
-            // 👇 DEBUG : afficher la valeur de user_id
-            await DisplayAlert("Debug", $"User ID: {userId}", "OK");
 
             if (userId == 0)
             {
@@ -87,6 +87,8 @@ namespace OutdoorShareMauiApp.Pages
                 .Select(p => p.ImageSource)
                 .ToList();
 
+            
+
             var api = new ApiService();
             var result = await api.AddSkiMaterialAsync(
                 title,
@@ -94,8 +96,7 @@ namespace OutdoorShareMauiApp.Pages
                 materialType,
                 price,
                 imagePaths,
-                "Chamonix", // ou depuis un champ plus tard
-                null // id de station de ski si disponible
+                city
             );
 
             await DisplayAlert("Résultat", result, "OK");
