@@ -218,7 +218,7 @@ namespace OutdoorShareMauiApp.Services
                     price = price,
                     city = city,
                     user = userId,
-                    image = images
+                    image = images.Select(path => Convert.ToBase64String(File.ReadAllBytes(path))).ToList()
                 };
 
                 var jsonContent = new StringContent(
