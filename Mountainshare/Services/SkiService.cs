@@ -15,9 +15,10 @@ namespace OutdoorShareMauiApp.Services
         public string Title { get; set; }
         public string MaterialType { get; set; }
         public string City { get; set; }
-        public decimal Price { get; set; }  
+        public decimal Price { get; set; }
         public string Description { get; set; }
         public DateTime PostedAt { get; set; }
+        public string Image { get; set; }  // Base64 encoded image string
     }
 
     public class User
@@ -49,7 +50,7 @@ namespace OutdoorShareMauiApp.Services
             try
             {
                 var response = await client.GetStringAsync(baseUrl + "skimaterial");
-                
+
                 return JsonConvert.DeserializeObject<List<SkiMaterial>>(response);
             }
             catch (Exception ex)
@@ -126,7 +127,7 @@ namespace OutdoorShareMauiApp.Services
             {
                 var requestData = new
                 {
-                 
+
                     username = username,
                     password = password
                 };
@@ -148,9 +149,9 @@ namespace OutdoorShareMauiApp.Services
 
                     var loginResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
                     var userProfile = JsonConvert.DeserializeObject<UserProfile>(responseContent2);
-                    
+
                     int userId = userProfile.User.Id;
-                    Preferences.Set("user_id", userId); 
+                    Preferences.Set("user_id", userId);
 
 
                     if (loginResponse.ContainsKey("token"))
@@ -202,30 +203,45 @@ namespace OutdoorShareMauiApp.Services
             return null;
         }
 
-        public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city )
+        public async Task<string> AddSkiMaterialAsync(string title, string description, string materialType, decimal price, List<string> images, string city)
         {
             try
             {
-                var userId = Preferences.Get("user_id", 0); 
+                var userId = Preferences.Get("user_id", 0);
                 var token = GetAuthToken();
 
+                string base64Image = string.Empty;
+                if (images != null && images.Count > 0)
+                {
+                    var imagePath = images[0];
+                    if (File.Exists(imagePath))
+                    {
+                        var bytes = File.ReadAllBytes(imagePath);
+                        var base64 = Convert.ToBase64String(bytes);
+                        base64Image = FixBase64Padding(base64);
+                    }
+                }
 
                 var requestData = new
                 {
                     title = title,
                     description = description,
                     material_type = materialType,
-                    price = price,
+                    price = price.ToString(),
                     city = city,
                     user = userId,
-                    image = images.Select(path => Convert.ToBase64String(File.ReadAllBytes(path))).ToList()
+                    image = base64Image
                 };
 
-                var jsonContent = new StringContent(
-                    JsonConvert.SerializeObject(requestData),
-                    Encoding.UTF8,
-                    "application/json"
-                );
+                var settings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    Formatting = Formatting.None
+                };
+
+                var json = JsonConvert.SerializeObject(requestData, settings);
+
+                var jsonContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", token);
 
@@ -234,7 +250,7 @@ namespace OutdoorShareMauiApp.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsStringAsync();
-                    return "Matériel ajouté avec succès : " + result;
+                    return "Matériel ajouté avec succès";
                 }
                 else
                 {
@@ -248,8 +264,17 @@ namespace OutdoorShareMauiApp.Services
             }
         }
 
+        string FixBase64Padding(string base64String)
+        {
+            if (string.IsNullOrEmpty(base64String))
+                return base64String;
 
-
+            int padding = base64String.Length % 4;
+            if (padding != 0)
+            {
+                base64String = base64String.PadRight(base64String.Length + (4 - padding), '=');
+            }
+            return base64String;
+        }
     }
-
 }

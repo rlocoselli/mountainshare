@@ -59,6 +59,7 @@ namespace OutdoorShareMauiApp.Pages
 
         private async void OnAddMaterialClicked(object sender, EventArgs e)
         {
+            
             var title = TitleEntry.Text;
             var materialType = CategoryPicker.SelectedItem?.ToString();     
             var city = CityEntry.Text;
